@@ -1,0 +1,23 @@
+name: labo-pubsub
+version: 0.1.0.0
+github: apeyroux/labo-pubsub
+author: Alexandre Peyroux
+maintainer: alex@px.io
+category: System
+license: BSD3
+description: Labo pour tester pubsub de redis
+    
+executable:
+  main: Main.hs
+  # buildable: false
+  source-dirs: app
+  ghc-options: -Wall
+  dependencies:
+    - aeson
+    - base >= 4.2 && < 5
+    - bytestring
+    - dhall
+    - hedis
+    - optparse-applicative
+    - scotty
+    - text
