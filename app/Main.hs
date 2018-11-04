@@ -1,4 +1,9 @@
 {-# LANGUAGE OverloadedStrings #-}
 
+import PubSub.Worker
+
 main :: IO ()
-main = putStrLn "starting ..."
+main = do
+  putStrLn "starting ..."
+  startWorker
+
