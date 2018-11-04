@@ -4,6 +4,7 @@ import PubSub.Worker
 
 main :: IO ()
 main = do
-  putStrLn "starting ..."
-  startWorker
-
+  wid <- startWorker
+  putStrLn $ "starting " <> (show wid) <> " ..."
+  _ <- getLine
+  return ()
