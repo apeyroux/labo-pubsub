@@ -27,7 +27,3 @@ main = do
 
   _ <- getLine
   return ()
-
-  where
-    uids :: UIds
-    uids = ["123456", "654321"]
