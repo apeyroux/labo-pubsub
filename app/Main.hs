@@ -16,9 +16,10 @@ main = do
   putStrLn $ "starting " <> (show wid) <> " ..."
 
   scotty 3000 $
-    Web.Scotty.get "/:word" $ do
-    _ <- liftAndCatchIO $ runRedis rconn $ publish "actions" (C8.pack $ show uids)
-    html $ "starting new action with " <> (TL.pack $ show uids) <> " ..."
+    Web.Scotty.get "/" $ do
+    uuids <- param "uids"
+    _ <- liftAndCatchIO $ runRedis rconn $ publish "actions" (C8.pack $ uuids)
+    html $ "starting new action with " <> (TL.pack $ show uuids) <> " ..."
 
   _ <- getLine
   return ()
