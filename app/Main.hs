@@ -3,7 +3,6 @@
 import qualified Data.ByteString.Char8 as C8
 import qualified Data.Text.Lazy as TL
 import           Database.Redis
-import           PubSub.Types
 import           PubSub.Worker
 import           Web.Scotty
 
@@ -22,7 +21,7 @@ main = do
       _ <- liftAndCatchIO $ runRedis rconn $ publish "actions" (C8.pack $ uuids)
       html $ "starting new action with " <> (TL.pack $ show uuids) <> " ..."
   
-    Web.Scotty.get "/" $ do
+    Web.Scotty.get "/" $
       html "form to post /"
 
   _ <- getLine
